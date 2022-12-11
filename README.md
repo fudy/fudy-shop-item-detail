@@ -1,0 +1,1 @@
+# fudy-shop-item-detail
