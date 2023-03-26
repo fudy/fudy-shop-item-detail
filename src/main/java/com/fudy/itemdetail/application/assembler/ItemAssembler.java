@@ -24,6 +24,7 @@ public interface ItemAssembler {
         vo.setSalesVolume(item.getSales()+"");
         vo.setMinPrice(item.getMinPriceStr());
         vo.setMaxPrice(item.getMaxPriceStr());
+        vo.setDesc(item.getDesc());
         if (StringUtils.equals(vo.getMinPrice(), vo.getMaxPrice())) {
             vo.setMaxPrice(null);
         }

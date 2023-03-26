@@ -16,5 +16,6 @@ public class ItemVO implements Serializable {
     private String maxPrice;
     private List<ItemAttributeVO> attributeList;
     private List<ItemSkuVO> skuList;
+    private String desc;
 
 }

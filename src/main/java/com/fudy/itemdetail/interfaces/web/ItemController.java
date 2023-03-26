@@ -15,7 +15,7 @@ public class ItemController {
     private ItemManager itemManager;
 
     @CrossOrigin
-    @GetMapping("/item/{id}")
+    @GetMapping("/api/item/{id}")
     public @ResponseBody
     Result<ItemVO> getItem(@PathVariable Long id) {
         try {

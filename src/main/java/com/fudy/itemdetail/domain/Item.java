@@ -17,6 +17,7 @@ public class Item {
     private List<ItemSku> skuList;
     private ItemPrice minPrice;
     private ItemPrice maxPrice;
+    private String desc;
 
     public static String getOptionKey(String attrKey, Object attrValue) {
         return attrKey + "-" + attrValue;

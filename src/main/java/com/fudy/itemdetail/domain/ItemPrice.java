@@ -12,6 +12,10 @@ public class ItemPrice {
         this.price = price;
     }
 
+    public String toString() {
+        return price.toString();
+    }
+
     public boolean greatThan(BigDecimal price) {
         if (null == price || null == this.price) {
             return false;
