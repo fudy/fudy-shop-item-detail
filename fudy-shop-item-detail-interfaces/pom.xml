@@ -24,6 +24,11 @@
             <groupId>com.fudy</groupId>
             <artifactId>fudy-shop-common</artifactId>
         </dependency>
+        <!-- validation -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

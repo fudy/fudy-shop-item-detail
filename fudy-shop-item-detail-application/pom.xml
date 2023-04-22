@@ -20,6 +20,10 @@
             <groupId>com.fudy</groupId>
             <artifactId>fudy-shop-item-detail-interfaces</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.fudy</groupId>
+            <artifactId>fudy-shop-item-detail-domain</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
