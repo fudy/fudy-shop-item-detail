@@ -1,9 +1,8 @@
 package com.fudy.itemdetail.interfaces.web;
 
-import com.fudy.itemdetail.application.ItemFeedbackManager;
-import com.fudy.itemdetail.application.query.ItemFeedbackQuery;
-import com.fudy.itemdetail.application.vo.ItemFeedbackVO;
-import com.fudy.itemdetail.application.vo.ItemVO;
+import com.fudy.itemdetail.interfaces.web.manager.ItemFeedbackManagerInterface;
+import com.fudy.itemdetail.interfaces.web.query.ItemFeedbackQuery;
+import com.fudy.itemdetail.interfaces.web.vo.ItemFeedbackVO;
 import com.fudy.shop.common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ import java.util.List;
 @Controller
 public class ItemFeedbackController {
     @Autowired
-    private ItemFeedbackManager manager;
+    private ItemFeedbackManagerInterface manager;
 
     @CrossOrigin
     @GetMapping("/api/item-feedbacks")

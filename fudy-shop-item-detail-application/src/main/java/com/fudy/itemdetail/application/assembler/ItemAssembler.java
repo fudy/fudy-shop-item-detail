@@ -2,10 +2,10 @@ package com.fudy.itemdetail.application.assembler;
 
 import com.fudy.itemdetail.domain.Item;
 import com.fudy.itemdetail.domain.ItemSku;
-import com.fudy.itemdetail.application.vo.ItemAttributeOptionVO;
-import com.fudy.itemdetail.application.vo.ItemAttributeVO;
-import com.fudy.itemdetail.application.vo.ItemSkuVO;
-import com.fudy.itemdetail.application.vo.ItemVO;
+import com.fudy.itemdetail.interfaces.web.vo.ItemAttributeOptionVO;
+import com.fudy.itemdetail.interfaces.web.vo.ItemAttributeVO;
+import com.fudy.itemdetail.interfaces.web.vo.ItemSkuVO;
+import com.fudy.itemdetail.interfaces.web.vo.ItemVO;
 import org.apache.commons.lang3.StringUtils;
 import org.mapstruct.Mapper;
 

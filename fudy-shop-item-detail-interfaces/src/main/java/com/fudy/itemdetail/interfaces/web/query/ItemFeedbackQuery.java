@@ -1,4 +1,4 @@
-package com.fudy.itemdetail.application.query;
+package com.fudy.itemdetail.interfaces.web.query;
 
 import lombok.Data;
 

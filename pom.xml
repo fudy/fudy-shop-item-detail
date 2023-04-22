@@ -42,6 +42,7 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<!-- sub module -->
 			<dependency>
 				<groupId>com.fudy</groupId>
 				<artifactId>fudy-shop-item-detail-application</artifactId>
@@ -60,6 +61,12 @@
 			<dependency>
 				<groupId>com.fudy</groupId>
 				<artifactId>fudy-shop-item-detail-interfaces</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<!-- common -->
+			<dependency>
+				<groupId>com.fudy</groupId>
+				<artifactId>fudy-shop-common</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 		</dependencies>

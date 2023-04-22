@@ -1,8 +1,8 @@
 package com.fudy.itemdetail.application.assembler;
 
-import com.fudy.itemdetail.application.vo.ItemFeedbackVO;
 import com.fudy.itemdetail.domain.Image;
 import com.fudy.itemdetail.domain.ItemFeedback;
+import com.fudy.itemdetail.interfaces.web.vo.ItemFeedbackVO;
 import org.mapstruct.Mapper;
 
 import java.util.ArrayList;

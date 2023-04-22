@@ -1,4 +1,4 @@
-package com.fudy.itemdetail.application.vo;
+package com.fudy.itemdetail.interfaces.web.vo;
 
 import lombok.Data;
 

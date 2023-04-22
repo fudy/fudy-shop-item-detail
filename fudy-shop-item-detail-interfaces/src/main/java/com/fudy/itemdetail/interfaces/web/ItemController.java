@@ -1,7 +1,7 @@
 package com.fudy.itemdetail.interfaces.web;
 
-import com.fudy.itemdetail.application.ItemManager;
-import com.fudy.itemdetail.application.vo.ItemVO;
+import com.fudy.itemdetail.interfaces.web.manager.ItemManagerInterface;
+import com.fudy.itemdetail.interfaces.web.vo.ItemVO;
 import com.fudy.shop.common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class ItemController {
     @Autowired
-    private ItemManager itemManager;
+    private ItemManagerInterface itemManager;
 
     @CrossOrigin
     @GetMapping("/api/item/{id}")
