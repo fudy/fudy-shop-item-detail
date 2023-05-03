@@ -22,7 +22,11 @@ public class ItemFeedbackManager implements ItemFeedbackManagerInterface {
     private ItemFeedbackAssembler assembler;
 
     public List<ItemFeedbackVO> getItemFeedbackList(@Valid ItemFeedbackQuery query) {
-        List<ItemFeedback> list = repository.getItemFeedbackList(query.getItemId());
+        List<ItemFeedback> list = repository.getItemFeedbackList(query.getItemId(), query.offset(), query.getPageSize());
         return assembler.toItemFeedbackVOList(list);
+    }
+
+    public int getItemFeedbackTotal(@Valid ItemFeedbackQuery query) {
+        return repository.getItemFeedbackCount(query.getItemId());
     }
 }

@@ -17,8 +17,14 @@ public class ItemFeedbackRepositoryImpl implements ItemFeedbackRepository {
     @Autowired
     private ItemFeedbackConvertor convertor;
 
-    public List<ItemFeedback> getItemFeedbackList(Long itemId) {
-        List<ItemFeedbackDO> list = mapper.selectList(itemId);
+    public List<ItemFeedback> getItemFeedbackList(Long itemId, int offset, int pageSize) {
+        List<ItemFeedbackDO> list = mapper.selectList(itemId, offset, pageSize);
         return convertor.toItemFeedbackList(list);
+    }
+
+    @Override
+    public int getItemFeedbackCount(Long itemId) {
+        int count = mapper.count(itemId);
+        return count;
     }
 }

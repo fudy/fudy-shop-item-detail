@@ -3,6 +3,7 @@ package com.fudy.itemdetail.interfaces.web;
 import com.fudy.itemdetail.interfaces.web.manager.ItemFeedbackManagerInterface;
 import com.fudy.itemdetail.interfaces.web.query.ItemFeedbackQuery;
 import com.fudy.itemdetail.interfaces.web.vo.ItemFeedbackVO;
+import com.fudy.shop.common.PagingResult;
 import com.fudy.shop.common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +21,14 @@ public class ItemFeedbackController {
     @CrossOrigin
     @GetMapping("/api/item-feedbacks")
     public @ResponseBody
-    Result<List<ItemFeedbackVO>> getItemFeedbackList(@RequestBody ItemFeedbackQuery query) {
+    PagingResult<List<ItemFeedbackVO>> getItemFeedbackList(ItemFeedbackQuery query) {
         try {
             List<ItemFeedbackVO> data = manager.getItemFeedbackList(query);
-            return Result.success(data);
+            int total = manager.getItemFeedbackTotal(query);
+            return PagingResult.success(data,total);
         } catch (Exception e) {
             log.error(e.getMessage());
-            return Result.fail(null, e.getMessage());
+            return PagingResult.fail(null, e.getMessage());
         }
     }
 }
