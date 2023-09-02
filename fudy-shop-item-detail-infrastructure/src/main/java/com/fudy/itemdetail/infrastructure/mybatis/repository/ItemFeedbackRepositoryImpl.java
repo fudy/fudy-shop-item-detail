@@ -5,6 +5,7 @@ import com.fudy.itemdetail.domain.repository.ItemFeedbackRepository;
 import com.fudy.itemdetail.infrastructure.mybatis.convertor.ItemFeedbackConvertor;
 import com.fudy.itemdetail.infrastructure.mybatis.data.ItemFeedbackDO;
 import com.fudy.itemdetail.infrastructure.mybatis.mapper.ItemFeedbackMapper;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -26,5 +27,15 @@ public class ItemFeedbackRepositoryImpl implements ItemFeedbackRepository {
     public int getItemFeedbackCount(Long itemId) {
         int count = mapper.count(itemId);
         return count;
+    }
+
+    @Override
+    public void increaseLikeNum() {
+        mapper.increaseLikeNum();
+    }
+
+    @Override
+    public void decreaseLikeNum() {
+        mapper.decreaseLikeNum();
     }
 }

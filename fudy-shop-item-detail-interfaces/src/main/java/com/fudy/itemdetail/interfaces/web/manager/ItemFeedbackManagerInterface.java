@@ -9,4 +9,6 @@ import java.util.List;
 public interface ItemFeedbackManagerInterface {
     List<ItemFeedbackVO> getItemFeedbackList(ItemFeedbackQuery query);
     int getItemFeedbackTotal(@Valid ItemFeedbackQuery query);
+
+    int likeItemFeedback(Long id, Long userId, Long itemId);
 }

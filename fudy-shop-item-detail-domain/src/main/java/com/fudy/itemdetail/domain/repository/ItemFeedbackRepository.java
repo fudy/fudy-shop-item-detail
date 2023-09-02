@@ -8,4 +8,8 @@ public interface ItemFeedbackRepository {
     List<ItemFeedback> getItemFeedbackList(Long itemId, int offset, int pageSize);
 
     int getItemFeedbackCount(Long itemId);
+
+    void increaseLikeNum();
+
+    void decreaseLikeNum();
 }

@@ -9,6 +9,8 @@ import java.util.List;
 @Data
 public class ItemFeedbackVO implements Serializable {
     private static final long serialVersionUID = 4760676455039594801L;
+    //id
+    private Long id;
     //创建时间
     private Date createdTime;
     //用户头像

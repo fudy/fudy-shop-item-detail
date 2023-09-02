@@ -3,6 +3,7 @@ package com.fudy.itemdetail.infrastructure.mybatis.mapper;
 import com.fudy.itemdetail.infrastructure.mybatis.data.ItemFeedbackDO;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -15,4 +16,10 @@ public interface ItemFeedbackMapper {
 
     @Select("select count(1) from item_feedback where item_id = #{itemId}")
     int count(Long itemId);
+
+    @Update("update item_feedback set like_num=like_num+1 where id = #{id}")
+    void increaseLikeNum();
+
+    @Update("update item_feedback set like_num=like_num-1 where id = #{id}")
+    void decreaseLikeNum();
 }
