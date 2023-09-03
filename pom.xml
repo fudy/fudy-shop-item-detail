@@ -120,6 +120,7 @@
 		</dependencies>
 	</dependencyManagement>
 	<build>
+		<finalName>fudy-shop-item-detail</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -151,6 +152,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<mainClass>com.fudy.itemdetail.FudyShopItemDetailApplication</mainClass>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
