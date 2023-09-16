@@ -12,18 +12,35 @@
     <artifactId>fudy-shop-item-detail-infrastructure</artifactId>
 
     <dependencies>
+        <!-- 子模块 -->
         <dependency>
             <groupId>com.fudy</groupId>
             <artifactId>fudy-shop-item-detail-domain</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.fudy</groupId>
+            <artifactId>fudy-shop-item-detail-application</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.fudy</groupId>
+            <artifactId>fudy-shop-item-detail-interfaces</artifactId>
+        </dependency>
+        <!-- 二方库，获取商品信息 -->
+        <dependency>
+            <groupId>com.fudy</groupId>
+            <artifactId>fudy-shop-api</artifactId>
+        </dependency>
+        <!-- mybatis操作数据库 -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- redis缓存 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
@@ -32,6 +49,7 @@
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session-data-redis</artifactId>
         </dependency>
+        <!-- nacos分布式配置-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
@@ -41,24 +59,10 @@
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
+        <!--阿里云api-->
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>dysmsapi20170525</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-        </dependency>
-        <!-- bean validator 接口规范, spring boot web组件已经有对应实现，不需要再引入其他依赖 -->
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
         </dependency>
         <!-- dubbo 3-->
         <dependency>

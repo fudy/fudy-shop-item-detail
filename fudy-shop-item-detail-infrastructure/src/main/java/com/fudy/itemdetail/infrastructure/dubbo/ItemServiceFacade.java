@@ -1,6 +1,7 @@
 package com.fudy.itemdetail.infrastructure.dubbo;
 
 import com.fudy.itemdetail.domain.Item;
+import com.fudy.itemdetail.domain.repository.ItemRepository;
 import com.fudy.itemdetail.infrastructure.dubbo.convertor.ItemConvertor;
 import com.fudy.shop.item.api.ItemService;
 import com.fudy.shop.item.api.dto.ItemDTO;
@@ -13,7 +14,7 @@ import com.fudy.shop.common.Result;
 import java.util.Objects;
 
 @Service
-public class ItemServiceFacade {
+public class ItemServiceFacade implements ItemRepository {
     @DubboReference(check = false,version = "1.0.0")
     private ItemService itemService;
     @Autowired

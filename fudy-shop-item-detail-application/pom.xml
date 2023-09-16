@@ -12,17 +12,20 @@
     <artifactId>fudy-shop-item-detail-application</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.fudy</groupId>
-            <artifactId>fudy-shop-item-detail-infrastructure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fudy</groupId>
-            <artifactId>fudy-shop-item-detail-interfaces</artifactId>
-        </dependency>
+        <!-- 子模块 -->
         <dependency>
             <groupId>com.fudy</groupId>
             <artifactId>fudy-shop-item-detail-domain</artifactId>
+        </dependency>
+        <!-- mapstruct类转换器-->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
+        <!-- bean validator 接口规范, spring boot web组件已经有对应实现，不需要再引入其他依赖 -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
         </dependency>
     </dependencies>
 

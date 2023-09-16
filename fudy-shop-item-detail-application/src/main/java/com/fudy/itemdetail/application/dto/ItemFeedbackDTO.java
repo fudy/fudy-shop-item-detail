@@ -1,4 +1,4 @@
-package com.fudy.itemdetail.interfaces.web.vo;
+package com.fudy.itemdetail.application.dto;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-public class ItemFeedbackVO implements Serializable {
+public class ItemFeedbackDTO implements Serializable {
     private static final long serialVersionUID = 4760676455039594801L;
     //id
     private Long id;

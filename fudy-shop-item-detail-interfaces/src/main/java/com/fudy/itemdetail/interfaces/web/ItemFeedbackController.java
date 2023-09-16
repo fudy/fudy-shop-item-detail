@@ -1,8 +1,8 @@
 package com.fudy.itemdetail.interfaces.web;
 
-import com.fudy.itemdetail.interfaces.web.manager.ItemFeedbackManagerInterface;
-import com.fudy.itemdetail.interfaces.web.query.ItemFeedbackQuery;
-import com.fudy.itemdetail.interfaces.web.vo.ItemFeedbackVO;
+import com.fudy.itemdetail.application.ItemFeedbackManager;
+import com.fudy.itemdetail.application.dto.ItemFeedbackQuery;
+import com.fudy.itemdetail.application.dto.ItemFeedbackDTO;
 import com.fudy.shop.common.PagingResult;
 import com.fudy.shop.common.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -17,14 +17,14 @@ import java.util.Objects;
 @Controller
 public class ItemFeedbackController {
     @Autowired
-    private ItemFeedbackManagerInterface manager;
+    private ItemFeedbackManager manager;
 
     @CrossOrigin
     @GetMapping("/api/item-feedbacks")
     public @ResponseBody
-    PagingResult<List<ItemFeedbackVO>> getItemFeedbackList(ItemFeedbackQuery query) {
+    PagingResult<List<ItemFeedbackDTO>> getItemFeedbackList(ItemFeedbackQuery query) {
         try {
-            List<ItemFeedbackVO> data = manager.getItemFeedbackList(query);
+            List<ItemFeedbackDTO> data = manager.getItemFeedbackList(query);
             int total = manager.getItemFeedbackTotal(query);
             return PagingResult.success(data,total);
         } catch (Exception e) {

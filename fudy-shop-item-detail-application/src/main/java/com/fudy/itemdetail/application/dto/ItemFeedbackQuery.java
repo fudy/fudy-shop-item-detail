@@ -1,4 +1,4 @@
-package com.fudy.itemdetail.interfaces.web.query;
+package com.fudy.itemdetail.application.dto;
 
 import com.fudy.shop.common.PagingQuery;
 import lombok.Data;

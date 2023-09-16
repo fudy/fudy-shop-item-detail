@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.fudy</groupId>
-            <artifactId>fudy-shop-item-detail-application</artifactId>
+            <artifactId>fudy-shop-item-detail-infrastructure</artifactId>
         </dependency>
 
         <dependency>

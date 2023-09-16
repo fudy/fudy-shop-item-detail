@@ -1,11 +1,11 @@
 package com.fudy.itemdetail.application.assembler;
 
+import com.fudy.itemdetail.application.dto.ItemAttributeDTO;
+import com.fudy.itemdetail.application.dto.ItemAttributeOptionDTO;
+import com.fudy.itemdetail.application.dto.ItemDTO;
+import com.fudy.itemdetail.application.dto.ItemSkuDTO;
 import com.fudy.itemdetail.domain.Item;
 import com.fudy.itemdetail.domain.ItemSku;
-import com.fudy.itemdetail.interfaces.web.vo.ItemAttributeOptionVO;
-import com.fudy.itemdetail.interfaces.web.vo.ItemAttributeVO;
-import com.fudy.itemdetail.interfaces.web.vo.ItemSkuVO;
-import com.fudy.itemdetail.interfaces.web.vo.ItemVO;
 import org.apache.commons.lang3.StringUtils;
 import org.mapstruct.Mapper;
 
@@ -16,83 +16,83 @@ import java.util.Map;
 @Mapper(componentModel = "spring")
 public interface ItemAssembler {
 
-    default ItemVO toItemVO(Item item) {
-        ItemVO vo = new ItemVO();
-        vo.setTitle(item.getTitle());
-        vo.setImageList(item.getImageList());
-        vo.setMainImage(item.getMainImage());
-        vo.setSalesVolume(item.getSales()+"");
-        vo.setMinPrice(item.getMinPriceStr());
-        vo.setMaxPrice(item.getMaxPriceStr());
-        vo.setDesc(item.getDesc());
-        if (StringUtils.equals(vo.getMinPrice(), vo.getMaxPrice())) {
-            vo.setMaxPrice(null);
+    default ItemDTO toItemDTO(Item item) {
+        ItemDTO dto = new ItemDTO();
+        dto.setTitle(item.getTitle());
+        dto.setImageList(item.getImageList());
+        dto.setMainImage(item.getMainImage());
+        dto.setSalesVolume(item.getSales()+"");
+        dto.setMinPrice(item.getMinPriceStr());
+        dto.setMaxPrice(item.getMaxPriceStr());
+        dto.setDesc(item.getDesc());
+        if (StringUtils.equals(dto.getMinPrice(), dto.getMaxPrice())) {
+            dto.setMaxPrice(null);
         }
-        vo.setAttributeList(toItemAttributeVOList(item.getAttributeList()));
-        vo.setSkuList(toItemSkuVOList(item.getSkuList(), item.getAttributeKeyList()));
-        return vo;
+        dto.setAttributeList(toItemAttributeVOList(item.getAttributeList()));
+        dto.setSkuList(toItemSkuVOList(item.getSkuList(), item.getAttributeKeyList()));
+        return dto;
     }
 
-    default List<ItemAttributeVO> toItemAttributeVOList(List<Map<String, List<Object>>> list) {
+    default List<ItemAttributeDTO> toItemAttributeVOList(List<Map<String, List<Object>>> list) {
         if (null == list) {
             return null;
         }
-        List<ItemAttributeVO> result = new ArrayList<>();
+        List<ItemAttributeDTO> result = new ArrayList<>();
         for (Map<String, List<Object>> map : list) {
-            ItemAttributeVO vo = toItemAttributeVO(map);
-            result.add(vo);
+            ItemAttributeDTO dto = toItemAttributeDTO(map);
+            result.add(dto);
         }
         return result;
     }
 
-    default ItemAttributeVO toItemAttributeVO(Map<String, List<Object>> map) {
-        ItemAttributeVO vo = new ItemAttributeVO();
+    default ItemAttributeDTO toItemAttributeDTO(Map<String, List<Object>> map) {
+        ItemAttributeDTO dto = new ItemAttributeDTO();
         String attrKey = map.keySet().stream().findFirst().get();
-        vo.setName(attrKey);
+        dto.setName(attrKey);
         List<Object> valueList = map.get(attrKey);
-        vo.setOptions(toItemAttributeOptionVOList(attrKey, valueList));
-        return vo;
+        dto.setOptions(toItemAttributeOptionVOList(attrKey, valueList));
+        return dto;
     }
 
-    default List<ItemAttributeOptionVO> toItemAttributeOptionVOList(String key, List<Object> valueList) {
+    default List<ItemAttributeOptionDTO> toItemAttributeOptionVOList(String key, List<Object> valueList) {
         if (null == valueList) {
             return null;
         }
-        List<ItemAttributeOptionVO> result = new ArrayList<>();
+        List<ItemAttributeOptionDTO> result = new ArrayList<>();
         for (Object value : valueList) {
-            ItemAttributeOptionVO vo = toItemAttributeOptionVO(key, value);
-            result.add(vo);
+            ItemAttributeOptionDTO dto = toItemAttributeOptionVO(key, value);
+            result.add(dto);
         }
         return result;
     }
 
-    default ItemAttributeOptionVO toItemAttributeOptionVO(String key, Object value) {
-        ItemAttributeOptionVO vo = new ItemAttributeOptionVO();
-        vo.setKey(Item.getOptionKey(key,value));
-        vo.setValue((String)value);
-        return vo;
+    default ItemAttributeOptionDTO toItemAttributeOptionVO(String key, Object value) {
+        ItemAttributeOptionDTO dto = new ItemAttributeOptionDTO();
+        dto.setKey(Item.getOptionKey(key,value));
+        dto.setValue((String)value);
+        return dto;
     }
 
-    default List<ItemSkuVO> toItemSkuVOList(List<ItemSku> skuList, List<String> attributeKeyList) {
+    default List<ItemSkuDTO> toItemSkuVOList(List<ItemSku> skuList, List<String> attributeKeyList) {
         if (null == skuList) {
             return null;
         }
-        List<ItemSkuVO> result = new ArrayList<>();
+        List<ItemSkuDTO> result = new ArrayList<>();
         for (ItemSku itemSku : skuList) {
-            result.add(toItemSkuVO(itemSku, attributeKeyList));
+            result.add(toItemSkuDTO(itemSku, attributeKeyList));
         }
         return result;
     }
 
-    default ItemSkuVO toItemSkuVO(ItemSku sku, List<String> attributeKeyList) {
+    default ItemSkuDTO toItemSkuDTO(ItemSku sku, List<String> attributeKeyList) {
         if (null == sku) {
             return null;
         }
-        ItemSkuVO vo = new ItemSkuVO();
-        vo.setImage(sku.getImage());
-        vo.setOptionValues(sku.getOptionValues(attributeKeyList));
-        vo.setPrice(sku.getStrPrice());
-        return vo;
+        ItemSkuDTO dto = new ItemSkuDTO();
+        dto.setImage(sku.getImage());
+        dto.setOptionValues(sku.getOptionValues(attributeKeyList));
+        dto.setPrice(sku.getStrPrice());
+        return dto;
     }
 
 }
