@@ -8,6 +8,7 @@ import java.util.List;
 @Data
 public class ItemDTO implements Serializable {
     private static final long serialVersionUID = -5333111734797807187L;
+    private Long id;
     private String title;
     private String salesVolume;
     private String mainImage;

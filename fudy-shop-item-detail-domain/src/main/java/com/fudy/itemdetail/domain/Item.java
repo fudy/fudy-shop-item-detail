@@ -9,6 +9,7 @@ import java.util.Map;
 
 @Data
 public class Item {
+    private Long id;
     private String title;
     private String mainImage;
     private List<String> imageList;
